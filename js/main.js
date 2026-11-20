@@ -3,13 +3,13 @@ import * as THREE from 'three';
 import {
   VERSION, STAGE_LABEL, ZONE, BALL_R, BASES, FIELDERS, BATTER, DIFFICULTY, PHYS,
   SETTINGS_DEFAULT, grade,
-} from './config.js?v=0.1.7';
-import { buildField } from './field.js?v=0.1.7';
-import { makePlayer, setBatAngle, animateRun } from './characters.js?v=0.1.7';
-import { choosePitch, pitchPosition } from './pitching.js?v=0.1.7';
-import { SWING, cursorSize, evaluateSwing, simulateBattedBall, resolvePlay } from './hitting.js?v=0.1.7';
-import { Input } from './input.js?v=0.1.7';
-import { unlockAudio, sfx } from './audio.js?v=0.1.7';
+} from './config.js?v=0.1.8';
+import { buildField } from './field.js?v=0.1.8';
+import { makePlayer, setBatAngle, animateRun } from './characters.js?v=0.1.8';
+import { choosePitch, pitchPosition } from './pitching.js?v=0.1.8';
+import { SWING, cursorSize, evaluateSwing, simulateBattedBall, resolvePlay } from './hitting.js?v=0.1.8';
+import { Input } from './input.js?v=0.1.8';
+import { unlockAudio, sfx } from './audio.js?v=0.1.8';
 
 const $ = (id) => document.getElementById(id);
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -759,6 +759,19 @@ function frame(now) {
 }
 
 // ---------------------------------------------------------------- boot
+// If the browser served old cached files, reload once with the latest version in the URL.
+(async () => {
+  try {
+    const res = await fetch(`version.json?t=${Date.now()}`, { cache: 'no-store' });
+    if (!res.ok) return;
+    const latest = (await res.json()).version;
+    const params = new URLSearchParams(location.search);
+    if (latest && latest !== VERSION && params.get('v') !== latest) {
+      params.set('v', latest);
+      location.replace(`${location.pathname}?${params.toString()}`);
+    }
+  } catch (e) { /* offline: keep the cached version */ }
+})();
 $('stage-label').textContent = STAGE_LABEL;
 $('version').textContent = `v${VERSION}`;
 $('title-version').textContent = `v${VERSION}`;

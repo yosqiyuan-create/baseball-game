@@ -1,6 +1,6 @@
 // Game-wide constants. Units: meters, seconds, km/h where noted.
 
-export const VERSION = '0.1.7';
+export const VERSION = '0.1.8';
 export const STAGE_LABEL = '段階1：打撃練習';
 
 export const FIELD = {
