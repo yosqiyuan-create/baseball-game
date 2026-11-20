@@ -1,5 +1,5 @@
 // CPU pitch selection and pitch trajectory.
-import { ZONE, BALL_R, DIFFICULTY, PITCH_TYPES, FIELD } from './config.js?v=0.1.8';
+import { ZONE, BALL_R, DIFFICULTY, PITCH_TYPES, FIELD } from './config.js?v=0.1.9';
 
 const rand = (a, b) => a + Math.random() * (b - a);
 
