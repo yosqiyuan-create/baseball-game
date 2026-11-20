@@ -1,5 +1,5 @@
 // Swing evaluation, batted-ball flight and play resolution.
-import { BALL_R, PHYS, FIELD, fenceR, BASES, FIELDERS } from './config.js';
+import { BALL_R, PHYS, FIELD, fenceR, BASES, FIELDERS } from './config.js?v=0.1.7';
 
 const rand = (a, b) => a + Math.random() * (b - a);
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));

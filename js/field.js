@@ -1,6 +1,6 @@
 // Stadium: ground texture, fences, stands, bases, foul poles.
 import * as THREE from 'three';
-import { FIELD, fenceR, BASES } from './config.js';
+import { FIELD, fenceR, BASES } from './config.js?v=0.1.7';
 
 // Ground plane covers x: -160..160, z: -230..90 (meters).
 const G = { x0: -160, z0: -230, size: 320 };

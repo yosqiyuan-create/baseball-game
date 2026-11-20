@@ -3,13 +3,13 @@ import * as THREE from 'three';
 import {
   VERSION, STAGE_LABEL, ZONE, BALL_R, BASES, FIELDERS, BATTER, DIFFICULTY, PHYS,
   SETTINGS_DEFAULT, grade,
-} from './config.js';
-import { buildField } from './field.js';
-import { makePlayer, setBatAngle, animateRun } from './characters.js';
-import { choosePitch, pitchPosition } from './pitching.js';
-import { SWING, cursorSize, evaluateSwing, simulateBattedBall, resolvePlay } from './hitting.js';
-import { Input } from './input.js';
-import { unlockAudio, sfx } from './audio.js';
+} from './config.js?v=0.1.7';
+import { buildField } from './field.js?v=0.1.7';
+import { makePlayer, setBatAngle, animateRun } from './characters.js?v=0.1.7';
+import { choosePitch, pitchPosition } from './pitching.js?v=0.1.7';
+import { SWING, cursorSize, evaluateSwing, simulateBattedBall, resolvePlay } from './hitting.js?v=0.1.7';
+import { Input } from './input.js?v=0.1.7';
+import { unlockAudio, sfx } from './audio.js?v=0.1.7';
 
 const $ = (id) => document.getElementById(id);
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
