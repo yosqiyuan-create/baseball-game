@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0b1a2b">
+  <title>ドリームプロ野球 by Urushihara</title>
+  <meta name="apple-mobile-web-app-title" content="ドリームプロ野球">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">
+    { "imports": { "three": "./lib/three.module.js" } }
+  </script>
+
+<link rel="apple-touch-icon" href="gitup-icon.png">
+</head>
+<body>
+  <div id="app">
+    <canvas id="view"></canvas>
+
+    <div id="hud" class="hidden">
+      <div id="count-board">
+        <div class="row"><span class="lbl">B</span><span class="dots" id="dots-b"></span></div>
+        <div class="row"><span class="lbl">S</span><span class="dots" id="dots-s"></span></div>
+        <div class="row"><span class="lbl">O</span><span class="dots" id="dots-o"></span></div>
+      </div>
+      <div id="batter-info"></div>
+      <div id="stats"></div>
+      <div id="pitch-info"></div>
+      <div id="mode-label"></div>
+      <div id="call"></div>
+      <div id="message"></div>
+      <div id="guide"></div>
+    </div>
+
+    <div id="touch-controls" class="hidden">
+      <button id="btn-menu" class="tbtn small" aria-label="メニュー">≡</button>
+      <button id="btn-bunt" class="tbtn mid">バント</button>
+      <button id="btn-mode" class="tbtn mid">強振</button>
+      <button id="btn-swing" class="tbtn big">打つ</button>
+      <div id="drag-hint">画面をなぞると<br>カーソルが動きます</div>
+    </div>
+
+    <div id="title-screen" class="screen">
+      <div class="panel">
+        <h1>ドリームプロ野球</h1>
+        <p class="byline">by Urushihara　<span id="title-version"></span></p>
+        <p class="stage" id="stage-label"></p>
+        <button id="btn-start" class="menu-item focus">はじめる</button>
+        <div class="howto">
+          <table>
+            <tr><th></th><th>iPhone</th><th>Mac</th><th>Backbone Pro</th></tr>
+            <tr><td>カーソル</td><td>画面をなぞる</td><td>矢印キー</td><td>左スティック・十字キー</td></tr>
+            <tr><td>打つ</td><td>「打つ」</td><td>Space</td><td>Ⓐ</td></tr>
+            <tr><td>ミート/強振</td><td>「強振」</td><td>Shift</td><td>R1</td></tr>
+            <tr><td>バント</td><td>「バント」</td><td>B</td><td>Ⓨ</td></tr>
+            <tr><td>メニュー</td><td>≡</td><td>Esc</td><td>≡（メニュー）</td></tr>
+          </table>
+        </div>
+        <p class="pad-status" id="pad-status"></p>
+        <p class="note">音が出ない時は、画面を1回タップしてください。</p>
+      </div>
+    </div>
+
+    <div id="menu-screen" class="screen hidden">
+      <div class="panel">
+        <h2>メニュー</h2>
+        <div id="menu-items"></div>
+        <p class="note small" id="menu-hint"></p>
+      </div>
+    </div>
+
+    <div id="input-debug" class="hidden"></div>
+    <div id="toast"></div>
+    <div id="version"></div>
+  </div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
